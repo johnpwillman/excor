@@ -1,6 +1,23 @@
 <h1>Poems#index</h1>
 <p>Find me in app/views/poems/index.html.erb</p>
 
+<table>
+  <tr>
+    <td>
+      Title
+    </td>
+    <td>
+      Opening Line
+    </td>
+  </tr>
 <% @poems.each do |poem| %>
-<%= poem.title %>
+  <tr>
+    <td>
+      <%= poem.title %>
+    </td>
+    <td>
+      <%= poem.firstline %>
+    </td>
+  </tr>
 <% end %>
+</table>

@@ -4,12 +4,21 @@ class PoemsController < ApplicationController
   end
   
   def create
-    @user = current_user
+    @poem = current_user.poems.build(poem_params)
+    if @poem.save
+      flash[:success] = "Poem created!"
+      
+      if current_user.poems.empty?
+        redirect_to new_user_poem
+      else
+        redirect_to user_poems_path
+      end
+    end
   end
   
   def index
     @user = User.find(params[:user_id])
-    @poem = @user.poems.all
+    @poems = @user.poems.all
   end
   
   def show
@@ -21,4 +30,10 @@ class PoemsController < ApplicationController
 
   def destroy
   end
+    
+  private
+    
+    def poem_params
+      params.require(:poem).permit(:title, :firstline)
+    end
 end
