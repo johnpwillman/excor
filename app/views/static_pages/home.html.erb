@@ -16,3 +16,27 @@
   <% else %>
 <p>Please Log In</p>
   <% end %>
+
+<div id="main-content-div">
+  <h2>Poems</h2>
+  <table>
+    <tr>
+      <td>
+        <!-- Left blank for votes section -->
+      </td>
+      <td>
+        Title
+      </td>
+    </tr>
+    <% @poems.each do |poem| %>
+    <tr>
+      <td>
+        <%= poem.votes %>
+      </td>
+      <td>
+        <%= link_to poem.title, [User.find(poem.user_id), poem] %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
