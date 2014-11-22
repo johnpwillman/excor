@@ -2,10 +2,26 @@
 <p>Find me in app/views/poems/show.html.erb</p>
 
 <div id="poem-div">
-  <div id="poem-title">
-    <%= @poem.title %>
-  </div>
-  <div id="poem-body">
-    <%= @poem.firstline %>
+  <h3><%= @poem.title %></h3>
+  <table>
+    <tr>
+      <td><%= @poem.firstline %></td>
+    </tr>
+    <% if @poemlines.size > 0 %>
+    <% @poemlines.each do |pl| %>
+    <tr>
+      <td><%= pl.line %></td>
+    </tr>
+    <% end %>
+    <% end %>
+  </table>
+  
+  <div id="poemline-form">
+    <h3>Add a new line to this poem</h3>
+    <%= form_for [current_user, @poem, @poemline] do |f| %>
+    <%= f.label :line %>
+    <%= f.text_area :line %>
+    <%= f.submit %>
+    <% end %>
   </div>
 </div>

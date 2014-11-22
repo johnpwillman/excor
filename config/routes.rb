@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   
   # May need to use namespace instead of resources for :users
   resources :users do
-    resources :poems
+    resources :poems do
+      resources :poemlines
+    end
+    resources :poemlines
   end
   
   get 'static_pages/home'

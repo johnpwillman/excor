@@ -23,6 +23,10 @@ class PoemsController < ApplicationController
   
   def show
     @poem = Poem.find(params[:id])
+    @poemlines = Poemline.where("poem_id = ?", params[:id]).order(:created_at)
+    if user_signed_in?
+      @poemline = Poemline.new
+    end
   end
   
   def update

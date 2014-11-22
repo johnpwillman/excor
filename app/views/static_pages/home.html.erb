@@ -5,7 +5,7 @@
 <div id="left-side-div">
   <%= "Display current user if logged in: " + current_user.email %>
   <%= form_for [current_user, @poem] do |f| %>
-    <%= f.label :title %>
+  <%= f.label :title %>
   <%= f.text_field :title %>
   <%= f.label :first_line %>
   <%= f.text_area :firstline %>
