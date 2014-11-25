@@ -2,5 +2,5 @@
 <p>Find me in app/views/users/index.html.erb</p>
 
 <% @users.each do |user| %>
-<%= user.email %>
+<%= link_to user.email, user %>
 <% end %>

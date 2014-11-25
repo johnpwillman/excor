@@ -40,4 +40,5 @@ class PoemsController < ApplicationController
     def poem_params
       params.require(:poem).permit(:title, :firstline)
     end
+  
 end

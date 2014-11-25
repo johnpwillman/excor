@@ -3,13 +3,13 @@
 
   <% if user_signed_in? %>
 <div id="left-side-div">
-  <%= "Display current user if logged in: " + current_user.email %>
+  <!--<%= "Display current user if logged in: " + current_user.email %>-->
   <%= form_for [current_user, @poem] do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :first_line %>
-  <%= f.text_area :firstline %>
-  <%= f.submit %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= f.label :first_line %>
+    <%= f.text_area :firstline %>
+    <%= f.submit %>
   <% end %>
 </div>
 
@@ -23,14 +23,21 @@
       <td>
         Title
       </td>
+      <td>
+        Author
+      </td>
     </tr>
     <% @poems.each do |poem| %>
+      <% @user = User.find(poem.user_id)%>
     <tr>
       <td>
         <%= poem.votes %>
       </td>
       <td>
-        <%= link_to poem.title, [User.find(poem.user_id), poem] %>
+        <%= link_to poem.title, [@user, poem] %>
+      </td>
+      <td>
+        <%= link_to @user.email, @user %>
       </td>
     </tr>
     <% end %>

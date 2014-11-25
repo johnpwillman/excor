@@ -2,3 +2,14 @@
 <p>Find me in app/views/users/show.html.erb</p>
 
 <%= @user.email %>
+
+<table>
+  <tr>
+    <td>Poems</td>
+  </tr>
+  <% @poems.each do |poem| %>
+  <tr>
+    <td><%= link_to poem.firstline, [@user,poem] %></td>
+  </tr>
+  <% end %>
+</table>
