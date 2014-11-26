@@ -1,48 +1,61 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
-
+<div class="row">
   <% if user_signed_in? %>
-<div id="left-side-div">
-  <!--<%= "Display current user if logged in: " + current_user.email %>-->
-  <%= form_for [current_user, @poem] do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-    <%= f.label :first_line %>
-    <%= f.text_area :firstline %>
-    <%= f.submit %>
-  <% end %>
-</div>
+  <div class="col-md-4">
 
-<div id="main-content-div">
-  <h2>Poems</h2>
-  <table>
-    <tr>
-      <td>
-        <!-- Left blank for votes section -->
-      </td>
-      <td>
+    <h3>Start a Poem</h3>
+    <!--<%= "Display current user if logged in: " + current_user.email %>-->
+    <%= form_for [current_user, @poem], :html => {:class => 'form-horizontal', :role => 'form'} do |f| %>
+    <div class="form-group">
+      <%= f.label :title, :class => 'col-md-2' %>
+      <%= f.text_field :title, :class => 'col-md-10' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :first_line, :class => 'col-md-2' %>
+      <%= f.text_area :firstline, :class => 'col-md-10' %>
+    </div>
+      <%= f.submit 'submit', :class => 'btn btn-default pull-right' %>
+    <% end %>
+  </div>
+
+  <div class="col-md-8">
+    <h2>Poems</h2>
+    
+    <div class="row">
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-8">
         Title
-      </td>
-      <td>
+      </div>
+      <div class="col-md-3">
         Author
-      </td>
-    </tr>
+      </div>
+    </div>
+    
     <% @poems.each do |poem| %>
       <% @user = User.find(poem.user_id)%>
-    <tr>
-      <td>
+    <div class="row">
+      <div class="col-md-1">
         <%= poem.votes %>
-      </td>
-      <td>
+      </div>
+      <div class="col-md-8">
         <%= link_to poem.title, [@user, poem] %>
-      </td>
-      <td>
+      </div>
+      <div class="col-md-3">
         <%= link_to @user.email, @user %>
-      </td>
-    </tr>
+      </div>
+    </div>
     <% end %>
-  </table>
+  </div>
+  
 </div>
+  
+<div class="row">
+  <div class="col-med-12">
+    <h1>StaticPages#home</h1>
+    <p>Find me in app/views/static_pages/home.html.erb</p>
+  </div>
+</div>
+
 
   <% else %>
 <p>Please Log In</p>
