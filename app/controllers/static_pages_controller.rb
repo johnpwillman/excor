@@ -2,8 +2,8 @@ class StaticPagesController < ApplicationController
   def home
     if user_signed_in?
       @poem = Poem.new
-      @poems = Poem.all
     end
+    @poems = Poem.all
   end
 
   def about
