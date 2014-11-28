@@ -3,7 +3,7 @@ class StaticPagesController < ApplicationController
     if user_signed_in?
       @poem = Poem.new
     end
-    @poems = Poem.all
+    @poems = Poem.includes(:user)
   end
 
   def about
