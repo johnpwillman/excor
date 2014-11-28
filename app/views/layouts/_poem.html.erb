@@ -11,8 +11,8 @@
 
   <tr>
     <td><%= poem.votes %></td>
-    <td><%= poem.title %></td>
-    <td><%= poem.user.email %></td>
+    <td><%= link_to poem.title, [poem.user, poem] %></td>
+    <td><%= link_to poem.user.email, poem.user %></td>
   </tr>
 
 <% end %>
