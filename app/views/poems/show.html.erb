@@ -1,27 +1,40 @@
-<h1>Poems#show</h1>
-<p>Find me in app/views/poems/show.html.erb</p>
+<div class="row">
+  <% if user_signed_in? %>
+  <div class="col-md-4">
 
-<div id="poem-div">
-  <h3><%= @poem.title %></h3>
-  <table>
-    <tr>
-      <td><%= @poem.firstline %></td>
-    </tr>
-    <% if @poemlines.size > 0 %>
-    <% @poemlines.each do |pl| %>
-    <tr>
-      <td><%= pl.line %></td>
-    </tr>
-    <% end %>
-    <% end %>
-  </table>
-  
-  <div id="poemline-form">
-    <h3>Add a new line to this poem</h3>
-    <%= form_for [current_user, @poem, @poemline] do |f| %>
-    <%= f.label :line %>
-    <%= f.text_area :line %>
-    <%= f.submit %>
+    <h3>Add a line to this poem</h3>
+    <!--<%= "Display current user if logged in: " + current_user.email %>-->
+    <%= form_for [current_user, @poem, @poemline], :html => {:class => 'form-horizontal', :role => 'form'} do |f| %>
+    <div class="form-group">
+      <%= f.label :line, :class => 'col-sm-2 control-label' %>
+      <div class='col-sm-10'><%= f.text_area :line, :class => 'form-control' %></div>
+    </div>
+    <div class="col-sm-9">
+    </div>
+    <div class="col-sm-3">
+      <%= f.submit 'submit', :class => 'btn btn-default' %>
+    </div>
     <% end %>
   </div>
+
+
+  <% else %>
+  <div class="col-md-4">
+    <p>Please log in to contribute!</p>
+  </div>
+  <% end %>
+
+  <div class="col-md-8">
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= @poem.title %></h3>
+      </div>
+      <div class="panel-body">
+        <%= render 'poems/poemline' %>
+      </div>
+    </div>
+    
+  </div>
+  
 </div>
