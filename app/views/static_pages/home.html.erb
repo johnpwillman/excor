@@ -6,14 +6,18 @@
     <!--<%= "Display current user if logged in: " + current_user.email %>-->
     <%= form_for [current_user, @poem], :html => {:class => 'form-horizontal', :role => 'form'} do |f| %>
     <div class="form-group">
-      <%= f.label :title, :class => 'col-md-2' %>
-      <%= f.text_field :title, :class => 'col-md-10' %>
+      <%= f.label :title, :class => 'col-sm-2 control-label' %>
+      <div class='col-sm-10'><%= f.text_field :title, :class => 'form-control' %></div>
     </div>
     <div class="form-group">
-      <%= f.label :first_line, :class => 'col-md-2' %>
-      <%= f.text_area :firstline, :class => 'col-md-10' %>
+      <%= f.label :first_line, :class => 'col-sm-2 control-label' %>
+      <div class='col-sm-10'><%= f.text_area :firstline, :class => 'form-control' %></div>
     </div>
-      <%= f.submit 'submit', :class => 'btn btn-default pull-right' %>
+    <div class="col-sm-9">
+    </div>
+    <div class="col-sm-3">
+      <%= f.submit 'submit', :class => 'btn btn-default' %>
+    </div>
     <% end %>
   </div>
 

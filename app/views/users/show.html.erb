@@ -1,15 +1,8 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="row">
 
-<%= @user.email %>
-
-<table>
-  <tr>
-    <td>Poems</td>
-  </tr>
-  <% @poems.each do |poem| %>
-  <tr>
-    <td><%= link_to poem.firstline, [@user,poem] %></td>
-  </tr>
-  <% end %>
-</table>
+  <table class="table">
+    <caption class="table-caption"><%= @user.email %>'s poems</caption>
+    <%= render "users/poem" %>
+  </table>
+  
+</div>

@@ -1,0 +1,19 @@
+<thead>
+  <tr>
+    <th><!--Votes?--></th>
+    <th>Title</th>
+    <th>Author</th>
+  </tr>
+</thead>
+
+<tbody>
+<% @poems.each do |poem| %>
+
+  <tr>
+    <td><%= poem.votes %></td>
+    <td><%= link_to poem.title, [@user, poem] %></td>
+    <td><%= link_to @user.email, @user %></td>
+  </tr>
+
+<% end %>
+</tbody>
