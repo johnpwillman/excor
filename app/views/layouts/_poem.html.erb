@@ -1,3 +1,4 @@
+<% if @poems.size > 0 %>
 <thead>
   <tr>
     <th><!--Votes?--></th>
@@ -5,6 +6,7 @@
     <th>Author</th>
   </tr>
 </thead>
+<% end %>
 
 <tbody>
 <% @poems.each do |poem| %>

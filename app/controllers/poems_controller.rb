@@ -11,7 +11,7 @@ class PoemsController < ApplicationController
       if current_user.poems.empty?
         redirect_to new_user_poem
       else
-        redirect_to user_poems_path
+        redirect_to [current_user, @poem]
       end
     end
   end
