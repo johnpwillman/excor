@@ -1,4 +1,4 @@
 <p><%= @poem.firstline %></p>
 <% @poemlines.each do |poemline| %>
-<p><%= poemline.line %></p>
+<p title="Contributed by <%= poemline.user.email %>"><%= poemline.line %></p>
 <% end %>
