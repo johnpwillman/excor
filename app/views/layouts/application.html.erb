@@ -23,7 +23,6 @@
             <ul class="nav navbar-nav">
               <li class="<%= 'active' if params[:action] == 'home' %>"><%= link_to "Home", root_path %></li>
               <li class="<%= 'active' if params[:controller] == 'users' %>"><%= link_to "Poets", users_index_path %></li>
-              <li><%= ' class=\"active\"' %></li>
             </ul>
             <div class="navbar-form navbar-right">
               <div class="form-group">
