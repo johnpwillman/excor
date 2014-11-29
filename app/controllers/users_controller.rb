@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
   def index
+    if user_signed_in?
+      @poem = Poem.new
+    end
     @users = User.all
   end
   

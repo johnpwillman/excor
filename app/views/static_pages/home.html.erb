@@ -2,7 +2,7 @@
   <% if user_signed_in? %>
   <div class="col-md-4">
 
-    <h3>Start a Poem</h3>
+    <h3>Start your own Exquisite Corpse</h3>
     <!--<%= "Display current user if logged in: " + current_user.email %>-->
     <%= form_for [current_user, @poem], :html => {:class => 'form-horizontal', :role => 'form'} do |f| %>
     <div class="form-group">

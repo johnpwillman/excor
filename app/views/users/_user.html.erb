@@ -1,0 +1,15 @@
+<thead>
+  <tr>
+    <th>Author</th>
+  </tr>
+</thead>
+
+<tbody>
+  <% @users.each do |user| %>
+
+  <tr>
+    <td><%= link_to user.email, user %></td>
+  </tr>
+
+  <% end %>
+</tbody>

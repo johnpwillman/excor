@@ -21,8 +21,9 @@
         </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><%= link_to "Home", root_path %></li>
-              <li><%= link_to "Poets", users_index_path %></li>
+              <li class="<%= 'active' if params[:action] == 'home' %>"><%= link_to "Home", root_path %></li>
+              <li class="<%= 'active' if params[:controller] == 'users' %>"><%= link_to "Poets", users_index_path %></li>
+              <li><%= ' class=\"active\"' %></li>
             </ul>
             <div class="navbar-form navbar-right">
               <div class="form-group">
@@ -44,7 +45,8 @@
     <div class="jumbotron">
       <div class="container">
         <h1>Exquisite Corpse</h1>
-        <p>(Input info about Exquisite corpse poetry)</p>
+        <p>Exquisite corpse, also known as exquisite cadaver (from the original French term cadavre exquis) or rotating corpse, is a method by which a collection of words or images is collectively assembled. Each collaborator adds to a composition in sequence, either by following a rule (e.g. "The adjective noun adverb verb the adjective noun", as in "The green duck sweetly sang the dreadful dirge") or by being allowed to see only the end of what the previous person contributed.</p>
+        <p>On ExCor, poets can kick off a poem by creating the first line and letting others contribute subsequent lines. Check back for more features and control over how collaborators contribute.</p>
         <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
       </div>
     </div>
