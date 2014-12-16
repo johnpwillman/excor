@@ -6,12 +6,16 @@
     <!--<%= "Display current user if logged in: " + current_user.email %>-->
     <%= form_for [current_user, @poem], :html => {:class => 'form-horizontal', :role => 'form'} do |f| %>
     <div class="form-group">
-      <%= f.label :title, :class => 'col-sm-2 control-label' %>
-      <div class='col-sm-10'><%= f.text_field :title, :class => 'form-control' %></div>
+      <%= f.label :title, :class => 'col-sm-3 control-label' %>
+      <div class='col-sm-9'><%= f.text_field :title, :class => 'form-control' %></div>
     </div>
     <div class="form-group">
-      <%= f.label :first_line, :class => 'col-sm-2 control-label' %>
-      <div class='col-sm-10'><%= f.text_area :firstline, :class => 'form-control' %></div>
+      <%= f.label :first_line, :class => 'col-sm-3 control-label' %>
+      <div class='col-sm-9'><%= f.text_area :firstline, :class => 'form-control' %></div>
+    </div>
+    <div class="form-group">
+      <%= f.label :max_poem_lines, :class => 'col-sm-6 control-label' %>
+      <div class='col-sm-6'><%= f.number_field :linelimit, :value => 10, :class => 'form-control' %></div>
     </div>
     <div class="col-sm-9">
     </div>
