@@ -1,5 +1,10 @@
 <div class="row">
-  <% if user_signed_in? %>
+  <% if @poem.linelimit <= @poemlines.count + 1 %>
+  <div class="col-md-4">
+    <p>This poem is completed.</p>
+  </div>
+  
+  <% elsif user_signed_in? %>
   <div class="col-md-4">
 
     <h3>Add a line to this poem</h3>
