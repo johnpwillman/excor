@@ -1,4 +1,14 @@
+<% if @poemlines.count == 0 %>
+<p>[..Previous lines hidden..]</p>
 <p><%= @poem.firstline %></p>
-<% @poemlines.each do |poemline| %>
+
+<% elsif @poem.linelimit > @poemlines.count + 1 %>
+<p>[..Previous lines hidden..]</p>
+<p title="Contributed by <%= @poemlines.last.user.email %>"><%= @poemlines.last.line %></p>
+
+<% else %>
+<p><%= @poem.firstline %></p>
+  <% @poemlines.each do |poemline| %>
 <p title="Contributed by <%= poemline.user.email %>"><%= poemline.line %></p>
+  <% end %>
 <% end %>
